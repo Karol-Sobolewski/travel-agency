@@ -8,15 +8,20 @@ import MainLayout from './components/layout/MainLayout/MainLayout';
 import Home from './components/views/Home/Home';
 import Trips from './components/views/Trips/TripsContainer';
 // TODO - import other views
+import Countries from './components/views/Countries/CountriesContainer';
+import Regions from './components/views/Regions/RegionsContainer';
 import Info from './components/views/Info/Info';
 import NotFound from './components/views/NotFound/NotFound';
 
 import parseTrips from './utils/parseTrips';
 import {setMultipleStates} from './redux/globalRedux';
 
+
 class App extends React.Component {
   static propTypes = {
     trips: PropTypes.array,
+    countries: PropTypes.array,
+    regions: PropTypes.array,
     setStates: PropTypes.func,
   }
 
@@ -41,6 +46,8 @@ class App extends React.Component {
             <Route exact path='/' component={Home} />
             <Route exact path='/trips' component={Trips} />
             {/* TODO - add more routes for other views */}
+            <Route exact path='/countries' component={Countries} />
+            <Route exact path='/regions' component={Regions} />
             <Route exact path='/info' component={Info} />
             <Route path='*' component={NotFound} />
           </Switch>
@@ -52,6 +59,8 @@ class App extends React.Component {
 
 const mapStateToProps = state => ({
   trips: state.trips,
+  countries: state.countries,
+  regions: state.regions,
 });
 
 const mapDispatchToProps = dispatch => ({
