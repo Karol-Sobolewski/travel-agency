@@ -14,6 +14,7 @@ import ListItem from '../../common/ListItem/ListItem';
 import styles from './Trip.scss';
 import {Grid, Row, Col} from 'react-flexbox-grid';
 
+
 const Trip = ({error, name, image, cost, days, description, country, intro}) => {
   if(error) return <NotFound />;
   else return (
