@@ -21,7 +21,7 @@ export const changeSearchPhrase = payload => ({ payload, type: CHANGE_PHRASE });
 
 export const addSearchTag = payload => ({ payload, type: ADD_TAG });
 export const removeSearchTag = payload => ({ payload, type: REMOVE_TAG });
-export const changeSearchDuration = (type, value) => ({type: CHANGE_DURATION, payload: {type, value}});
+export const changeSearchDuration = payload => ({payload, type: CHANGE_DURATION});
 
 // reducer
 export default function reducer(statePart = [], action = {}) {
@@ -43,9 +43,11 @@ export default function reducer(statePart = [], action = {}) {
         tags: [...statePart.tags.filter(tag => tag !== action.payload)],
       };
     case CHANGE_DURATION:
+      //console.log (...statePart);
       return {
         ...statePart,
-        duration: action.payload,
+
+        duration: {...statePart.duration, [action.payload.type]: action.payload.value},
         //tags: [...statePart.tags.filter(tag => tag !== action.payload)],
       };
     default:
