@@ -1,3 +1,4 @@
+
 import {connect} from 'react-redux';
 import Trip from './Trip';
 import {getTripById} from '../../../redux/tripsRedux';

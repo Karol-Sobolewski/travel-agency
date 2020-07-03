@@ -19,11 +19,25 @@ export const getFilteredTrips = ({trips, filters}) => {
     output = output.filter(trip => pattern.test(trip.tags));
   }
   // TODO - sort by cost descending (most expensive goes first)
+  output = output.sort((a, b)=>{
+    console.log(a.cost);
 
+    const slicedA = parseFloat(a.cost.slice(1).replace(',', ''));
+    const slicedB = parseFloat(b.cost.slice(1).replace(',', ''));
+    return slicedB - slicedA;
+  });
 
   return output;
 };
 
+export const getTripById = ({trips}, tripId) => {
+  // let filtered = trips;
+
+  // TODO - filter trips by tripId - DONE
+  const filtered = trips.filter(trip => trip.id === tripId);
+
+  return filtered.length ? filtered[0] : {error: true};
+};
 
 export const getTripsForCountry = ({trips}, countryCode) => {
   const filtered = trips.filter(trip => trip.country.code == countryCode);
