@@ -20,7 +20,6 @@ export const getFilteredTrips = ({trips, filters}) => {
   }
   // TODO - sort by cost descending (most expensive goes first)
   output = output.sort((a, b)=>{
-    console.log(a.cost);
 
     const slicedA = parseFloat(a.cost.slice(1).replace(',', ''));
     const slicedB = parseFloat(b.cost.slice(1).replace(',', ''));
