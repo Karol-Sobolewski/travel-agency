@@ -62,7 +62,6 @@ OrderForm.propTypes = {
   options: PropTypes.object,
   id: PropTypes.node,
   setOrderOption: PropTypes.func,
-
 };
 
 export default OrderForm;

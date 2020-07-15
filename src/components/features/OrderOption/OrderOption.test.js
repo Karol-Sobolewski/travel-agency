@@ -81,8 +81,6 @@ for(let type in optionTypes){
     /* common tests */
     it('passes dummy test', () => {
       expect(1).toBe(1);
-      //console.log(component.debug());
-      console.log(subcomponent.debug());
 
     });
     it(`renders ${optionTypes[type]}`, () => {
